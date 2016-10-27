@@ -43,6 +43,7 @@ class Bearychat extends Adapter
     @receive new TextMessage user, text, key
 
   packMsg: (isReply, envelope, strings...) ->
+    console.log '--->', envelope
     text = strings[0]
     text = if isReply then "@#{envelope.user.name}: #{text}" else text
     attachments = strings[1] or null
